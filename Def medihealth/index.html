@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediHealth Appointments</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <header>
+    <h1>MediHealth Appointments</h1>
+  </header>
+
+  <main>
+    <form id = "appointment-form">
+    <!-- Appointment Form -->
+      <label for="patient_name">Patient Name:</label>
+      <input id="patient_name" name="patient_name" type="text" required aria-required="true">
+
+      <label for="patient_dob">Date of Birth:</label>
+      <input id="patient_dob" name="patient_dob" type="date" required aria-required="true">
+
+      <label for="patient_telephone">Telephone:</label>
+      <input id="patient_telephone" name="patient_telephone" type="tel" required aria-required="true">
+
+      <label for="patient_address">Address:</label>
+      <textarea id="patient_address" name="patient_address" required aria-required="true"></textarea>
+
+      <label for="patient_medical_history">Medical History:</label>
+      <textarea id="patient_medical_history" name="patient_medical_history" required aria-required="true"></textarea>
+
+      <label for="patient_next_of_kin">Next of Kin:</label>
+      <input id="patient_next_of_kin" name="patient_next_of_kin" type="text" required aria-required="true">
+
+      <button type="submit">Book Appointment</button>
+    </form>
+
+    <!-- Appointments List -->
+    <section aria-labelledby="appointments-title">
+      <h2 id="appointments-title">All Appointments</h2>
+      <ul id="appointments-list"></ul>
+    </section>
+  </main>
+
+ <script src="static/app.js"></script>
+</body>
+</html>

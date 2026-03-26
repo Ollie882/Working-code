@@ -1,0 +1,222 @@
+
+/* ==========================================================================
+   MediHealth Appointments — App UI
+   - Works whether inputs are inside #appointment-form or directly in <main>
+   - Stacks labels above controls; centres content in an app card
+   ========================================================================== */
+
+/* ===== Design tokens ===== */
+:root{
+  --bg: #eaf6ff;           /* soft medical background */
+  --surface: #ffffff;       /* card surface */
+  --text: #17212b;          /* primary text */
+  --muted: #5c6b7a;         /* secondary text */
+  --border: #d7e2ec;        /* neutral border */
+
+  --primary: #0077b6;       /* medical blue */
+  --primary-hover: #035a8c; /* darker blue for hover */
+  --focus: #7fd3f2;         /* accessible focus ring */
+  --error: #d62828;
+
+  --radius: 16px;           /* soft corners */
+  --pad: 14px;              /* field padding */
+  --gap: 16px;              /* vertical rhythm */
+  --card-max: 560px;        /* max card width */
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){ *{transition-duration:.001ms; animation-duration:.001ms; scroll-behavior:auto;} }
+
+/* ===== Base ===== */
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Segoe UI", system-ui, Roboto, Arial, sans-serif;
+  line-height:1.5;
+}
+
+/* ===== Header ===== */
+header{padding-top:24px}
+header h1{
+  margin:0 16px 18px;
+  text-align:center;
+  color:var(--primary);
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+/* ==========================================================================
+   App card container
+   - Applies to #appointment-form if present
+   - Falls back to <main> if not
+   ========================================================================== */
+#appointment-form,
+main{
+  box-sizing:border-box;
+  width:100%;
+  max-width:var(--card-max);
+  margin:0 auto 32px;            /* centre card */
+  padding:22px 20px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 10px 28px rgba(0,119,182,.12); /* subtle blue elevation */
+
+  /* Stack items cleanly */
+  display:flex;
+  flex-direction:column;
+  gap:var(--gap);
+}
+
+/* ==========================================================================
+   Stack labels and controls
+   - Targets controls whether inside #appointment-form or main
+   ========================================================================== */
+#appointment-form label,
+main > label{
+  display:block;
+  width:100%;
+  font-weight:600;
+  margin:0 0 6px;                /* space above the control */
+  color:var(--text);
+}
+
+#appointment-form input,
+#appointment-form textarea,
+#appointment-form button,
+main > input,
+main > textarea,
+main > button{
+  display:block;
+  width:100%;
+}
+
+/* Controls */
+#appointment-form input[type="text"],
+#appointment-form input[type="tel"],
+#appointment-form input[type="date"],
+#appointment-form textarea,
+main > input[type="text"],
+main > input[type="tel"],
+main > input[type="date"],
+main > textarea{
+  box-sizing:border-box;
+  padding:var(--pad);
+  border:1px solid var(--border);
+  border-radius:12px;
+  font-size:1rem;
+  background:#f7fbfe;
+  color:var(--text);
+  min-height:46px;               /* touch-friendly */
+  transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+/* Textareas */
+#appointment-form textarea,
+main > textarea{
+  resize:vertical;
+  min-height:120px;
+}
+
+/* Focus (accessible) */
+#appointment-form input:focus,
+#appointment-form textarea:focus,
+main > input:focus,
+main > textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+  background:#fff;
+  box-shadow:0 0 0 3px var(--focus);
+}
+
+/* Invalid */
+#appointment-form input:invalid,
+#appointment-form textarea:invalid,
+main > input:invalid,
+main > textarea:invalid{
+  border-color:var(--error);
+}
+
+/* Submit button — full width app action */
+#appointment-form button[type="submit"],
+main > button[type="submit"]{
+  margin-top:4px;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  background:var(--primary);
+  color:#fff;
+  font-weight:800;
+  letter-spacing:.3px;
+  cursor:pointer;
+  transition:background .2s ease;
+}
+#appointment-form button[type="submit"]:hover,
+#appointment-form button[type="submit"]:focus-visible,
+main > button[type="submit"]:hover,
+main > button[type="submit"]:focus-visible{
+  background:var(--primary-hover);
+}
+
+/* ===== Appointments list (matches card width) ===== */
+section{
+  max-width:var(--card-max);
+  margin:0 auto 40px;
+  padding:0 20px;
+}
+section h2{
+  text-align:center;
+  color:var(--primary-hover);
+  margin:10px 0 14px;
+}
+#appointments-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:12px;
+}
+#appointments-list li{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  box-shadow:0 4px 12px rgba(2,62,138,.08);
+}
+
+/* ===== Responsive ===== */
+@media (max-width:480px){
+  #appointment-form,
+  main{ margin:0 12px 24px; padding:18px 16px; }
+  section{ padding:0 16px; }
+}
+
+/* ===== Optional Dark Mode ===== */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f141a;
+    --surface:#121a23;
+    --text:#e9eef4;
+    --border:#223042;
+    --primary:#4aa3ff;
+    --primary-hover:#2c8df0;
+    --focus:#79c0ff;
+  }
+  #appointment-form,
+  main,
+  #appointments-list li{ box-shadow:0 10px 28px rgba(0,0,0,.35); }
+  #appointment-form input[type="text"],
+  #appointment-form input[type="tel"],
+  #appointment-form input[type="date"],
+  #appointment-form textarea,
+  main > input[type="text"],
+  main > input[type="tel"],
+  main > input[type="date"],
+  main > textarea{
+    background:#101821;
+    border-color:var(--border);
+    color:var(--text);
+  }
+}
