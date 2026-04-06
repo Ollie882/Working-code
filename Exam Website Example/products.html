@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="static/app.js" defer></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">NovaCart</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="basket.html">Basket</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="rewards.html">Rewards</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="home-main">
+    <section class="hero">
+        <h2>Products</h2>
+        <p>Browse our smart product range</p>
+    </section>
+
+    <section class="features">
+
+        <div class="feature-card">
+            <img src="https://via.placeholder.com/250" class="product-image">
+            <h3>Smart Headphones</h3>
+            <p>Premium wireless audio</p>
+            <p>£89.99</p>
+            <button class="primary-btn" onclick="addToBasket(1,'Smart Headphones',89.99)">Add to Basket</button>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://via.placeholder.com/250" class="product-image">
+            <h3>Fitness Watch</h3>
+            <p>Track steps and health</p>
+            <p>£129.99</p>
+            <button class="primary-btn" onclick="addToBasket(2,'Fitness Watch',129.99)">Add to Basket</button>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://via.placeholder.com/250" class="product-image">
+            <h3>Bluetooth Speaker</h3>
+            <p>Portable smart audio</p>
+            <p>£74.99</p>
+            <button class="primary-btn" onclick="addToBasket(3,'Bluetooth Speaker',74.99)">Add to Basket</button>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://via.placeholder.com/250" class="product-image">
+            <h3>Gaming Mouse</h3>
+            <p>Precision performance</p>
+            <p>£49.99</p>
+            <button class="primary-btn" onclick="addToBasket(4,'Gaming Mouse',49.99)">Add to Basket</button>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://via.placeholder.com/250" class="product-image">
+            <h3>LED Desk Lamp</h3>
+            <p>Modern smart lighting</p>
+            <p>£29.99</p>
+            <button class="primary-btn" onclick="addToBasket(5,'LED Desk Lamp',29.99)">Add to Basket</button>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://via.placeholder.com/250" class="product-image">
+            <h3>Power Bank</h3>
+            <p>Fast portable charging</p>
+            <p>£39.99</p>
+            <button class="primary-btn" onclick="addToBasket(6,'Power Bank',39.99)">Add to Basket</button>
+        </div>
+
+    </section>
+</main>
+
+</body>
+</html>

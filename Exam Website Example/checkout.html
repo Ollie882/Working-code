@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="static/app.js" defer></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">NovaCart</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="basket.html">Basket</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="rewards.html">Rewards</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="home-main">
+    <section class="hero">
+        <h2>Checkout</h2>
+        <p>Complete your order</p>
+    </section>
+
+    <section>
+        <div id="checkoutItems"></div>
+        <h3>Total: £<span id="checkoutTotal">0.00</span></h3>
+        <p>Reward Points Earned: <span id="pointsEarned">0</span></p>
+        <button id="checkoutButton" class="primary-btn">Complete Purchase</button>
+    </section>
+</main>
+
+</body>
+</html>

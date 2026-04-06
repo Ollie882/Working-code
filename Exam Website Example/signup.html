@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+    <h1>Welcome!</h1>
+
+    <form id="signup-form" aria-describedby="form-desc">
+        <p id="form-desc" class="visibility-hidden">
+            Use this form to create your new account!
+        </p>
+
+        <fieldset>
+            <legend>User Information</legend>
+
+            <label for="UserEmail">Please enter a valid email address:</label>
+            <input id="UserEmail" name="UserEmail" type="email" required autocomplete="email">
+
+            <label for="UserFirstName">Please enter your first name:</label>
+            <input id="UserFirstName" name="UserFirstName" type="text" required>
+
+            <label for="UserLastName">Please enter your surname:</label>
+            <input id="UserLastName" name="UserLastName" type="text" required>
+
+            <label for="password">Please enter a password:</label>
+            <input id="password" name="password" type="password" required>
+            <div id="passwordError" class="error"></div>
+
+            <label for="confirmPassword">Please confirm your password:</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" required>
+        </fieldset>
+
+        <button type="submit">Sign Up!</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="static/app.js" defer></script>
+</body>
+</html>
